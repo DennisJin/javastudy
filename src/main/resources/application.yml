@@ -1,0 +1,38 @@
+logging:
+  level:
+    ROOT: INFO
+    com.botree.springdemo.shardingjdbc: DEBUG
+server:
+  port: 8001
+
+book:
+  author: dennis
+  name: spring cloud
+  desc: ${book.author} write book ${book.name}
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.botree.springdemo.shardingjdbc
+  config-location: classpath:mybatis-config.xml
+
+spring:
+  profiles:
+    active: sharding
+  cache:
+    type: redis
+  redis:
+    host: 192.168.0.146
+    password: duobang123456
+    port: 5643
+    pool:
+      max-active: 8
+      max-wait: -1ms
+      min-idle: 0
+      max-idle: 8
+    lettuce:
+      pool:
+        min-idle: 0
+        max-idle: 8
+        max-wait: -1ms
+        max-active: 8
+        shutdown-timeout: 100ms

@@ -1,0 +1,57 @@
+sharding:
+  jdbc:
+    datasource:
+      names: ds0,ds1,ds2,ds3
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://192.168.0.140:5432/ds0?useUnicode=true&characterEncoding=utf8
+        username: postgres
+        password: 123456
+
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://192.168.0.148:5432/ds1?useUnicode=true&characterEncoding=utf8
+        username: postgres
+        password: 123456
+      ds2:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://192.168.0.141:5432/ds0?useUnicode=true&characterEncoding=utf8
+        username: postgres
+        password: 123456
+
+      ds3:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: org.postgresql.Driver
+        jdbc-url: jdbc:postgresql://192.168.0.142:5432/ds1?useUnicode=true&characterEncoding=utf8
+        username: postgres
+        password: 123456
+    config:
+      sharding:
+        default-database-strategy:
+          inline:
+            sharding-column: order_id
+            algorithm-expression: ds$->{order_id % 2}
+        tables:
+          t_order:
+            actual-data-nodes: ds$->{0..1}.t_order_$->{0..1}
+            table-strategy:
+              inline:
+                sharding-column: user_id
+                algorithm-expression: t_order_$->{user_id % 2}
+            key-generator-column-name: id
+        props:
+          sql:
+            show: true
+        master-slave-rules:
+          ds0:
+            master-data-source-name: ds0
+            slave-data-source-names: ds2
+            load-balance-algorithm-type: round_robin
+          ds1:
+            master-data-source-name: ds1
+            slave-data-source-names: ds3
+            load-balance-algorithm-class-name: com.botree.springdemo.shardingjdbc.NewBananceAlgorithm
+

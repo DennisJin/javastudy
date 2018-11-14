@@ -18,6 +18,11 @@ mybatis:
 spring:
   profiles:
     active: sharding
+#  datasource:
+#      url: jdbc:postgresql://192.168.0.140:5432/ds0?useUnicode=true&characterEncoding=utf8
+#      driverClassName: org.postgresql.Driver
+#      username: postgres
+#      password: 123456
   cache:
     type: redis
   redis:

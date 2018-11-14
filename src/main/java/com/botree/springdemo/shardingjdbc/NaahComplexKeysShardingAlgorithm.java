@@ -1,13 +1,13 @@
 package com.botree.springdemo.shardingjdbc;
 
-import io.shardingsphere.core.api.algorithm.sharding.ListShardingValue;
+/*import io.shardingsphere.core.api.algorithm.sharding.ListShardingValue;
 import io.shardingsphere.core.api.algorithm.sharding.ShardingValue;
 import io.shardingsphere.core.api.algorithm.sharding.complex.ComplexKeysShardingAlgorithm;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.HashSet;*/
 
 /**
  * NaahComplexKeysShardingAlgorithm
@@ -16,8 +16,8 @@ import java.util.HashSet;
  * @date 2018-07-30 上午10:16
  * @desc
  */
-public class NaahComplexKeysShardingAlgorithm implements ComplexKeysShardingAlgorithm {
-    private Logger logger = LoggerFactory.getLogger(NaahComplexKeysShardingAlgorithm.class);
+public class NaahComplexKeysShardingAlgorithm /*implements ComplexKeysShardingAlgorithm*/ {
+    /*private Logger logger = LoggerFactory.getLogger(NaahComplexKeysShardingAlgorithm.class);
 
     @Override
     public Collection<String> doSharding(Collection<String> availableTargetNames, Collection<ShardingValue> shardingValues) {
@@ -37,5 +37,5 @@ public class NaahComplexKeysShardingAlgorithm implements ComplexKeysShardingAlgo
 
         logger.debug(collect.toString());
         return collect;
-    }
+    }*/
 }

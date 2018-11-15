@@ -9,3 +9,5 @@ my java study
 3、sharding-sphere
     range-algorithm-class-name
     precise-algorithm-class-name
+4、mybatis：
+    plugin：https://www.cnblogs.com/lianggp/p/7573653.html

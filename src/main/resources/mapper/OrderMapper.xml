@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.botree.springdemo.shardingjdbc.OrderMapper">
-    <resultMap id="Order" type="com.botree.springdemo.shardingjdbc.Order">
+<mapper namespace="com.botree.springdemo.mapper.OrderMapper">
+    <resultMap id="Order" type="com.botree.springdemo.model.Order">
         <result column="id" property="id" jdbcType="BIGINT"/>
         <result column="order_id" property="orderId" jdbcType="INTEGER"/>
         <result column="user_id" property="userId" jdbcType="INTEGER"/>
@@ -26,4 +26,8 @@
     <insert id="findByOrderId" parameterType="Integer">
         SELECT * FROM t_order WHERE order_id=#{id}
     </insert>
+
+    <select id="selectOrderById" parameterType="java.lang.Long" resultMap="Order">
+        SELECT * FROM t_order WHERE id=#{id}
+    </select>
 </mapper>

@@ -1,5 +1,8 @@
 package com.botree.springdemo.shardingjdbc;
 
+import com.botree.springdemo.dao.OrderDao;
+import com.botree.springdemo.mapper.OrderMapper;
+import com.botree.springdemo.model.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,9 @@ import java.util.List;
 public class OrderMapperTest {
     @Autowired
     private OrderMapper orderMapper;
+
+    @Autowired
+    private OrderDao orderDao;
 
     @Test
     public void contextLoads() {
@@ -49,4 +55,9 @@ public class OrderMapperTest {
 
     }
 
+    @Test
+    public void selectOrderById(){
+        Order order=orderDao.selectOrderById(1885L);
+        System.out.println(order);
+    }
 }

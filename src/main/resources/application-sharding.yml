@@ -26,6 +26,6 @@ sharding:
       masterslave:
         name: ds_ms
         master-data-source-name: ds0
-        slave-data-source-names: ds1
+        slave-data-source-names: ds0
         load-balance-algorithm-type: round_robin
 

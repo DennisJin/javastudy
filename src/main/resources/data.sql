@@ -32,7 +32,7 @@ CREATE SEQUENCE t_order_1_id_seq
  alter table t_order_1 alter column id set default nextval('t_order_1_id_seq');
 
 
- drop table if exists t_order;
+drop table if exists t_order;
 drop SEQUENCE t_order_id_seq;
 
 create table t_order (

@@ -38,6 +38,5 @@ public class EndWithRangeShardingAlgorithm implements RangeShardingAlgorithm<Int
             }
         }
         return collect;
-//        return null;
     }
 }

@@ -1,5 +1,6 @@
-package com.botree.springdemo.shardingjdbc;
+package com.botree.springdemo.mapper;
 
+import com.botree.springdemo.model.Order;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -41,4 +42,5 @@ public interface OrderMapper {
      */
     List<Order> findByOrderId(Integer id);
 
+    Order selectOrderById(long id);
 }

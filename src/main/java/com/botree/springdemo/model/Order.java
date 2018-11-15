@@ -1,6 +1,4 @@
-package com.botree.springdemo.shardingjdbc;
-
-import java.io.Serializable;
+package com.botree.springdemo.model;
 
 import java.io.Serializable;
 
